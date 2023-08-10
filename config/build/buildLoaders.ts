@@ -1,12 +1,12 @@
-import webpack from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { BuildOptions } from './types/config'
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
-  }
+  };
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
@@ -15,14 +15,14 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         loader: 'file-loader',
       },
     ],
-  }
+  };
 
   // если без тс, то нуден babel-loader
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
     exclude: /node_modules/,
-  }
+  };
 
   const cssLoader = {
     test: /\.s[ac]ss$/i,
@@ -44,6 +44,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
       // Compiles Sass to CSS
       'sass-loader',
     ],
-  }
-  return [typescriptLoader, cssLoader, svgLoader, fileLoader]
+  };
+  return [typescriptLoader, cssLoader, svgLoader, fileLoader];
 }
