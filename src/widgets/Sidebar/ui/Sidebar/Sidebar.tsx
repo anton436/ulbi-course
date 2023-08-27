@@ -25,6 +25,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
         className,
       ])}
     >
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <Button data-testid="sidebar-toggle" onClick={onToggle}>
         toggle
       </Button>
